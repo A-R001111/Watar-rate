@@ -1,0 +1,260 @@
+:root {
+    --wbd-primary: linear-gradient(135deg, #0ea5e9, #2563eb); /* گرادیان اصلی برند */
+    --wbd-accent: #38bdf8; /* رنگ تأکیدی برای اجزای کلیدی */
+    --wbd-bg: #0b1120; /* پس‌زمینه تیره داشبورد */
+    --wbd-card: rgba(255, 255, 255, 0.04); /* پس‌زمینه نیمه شفاف کارت‌ها */
+    --wbd-border: rgba(255, 255, 255, 0.08); /* رنگ حاشیه نرم و لطیف */
+    --wbd-text: #e5e7eb; /* رنگ متن اصلی */
+    --wbd-muted: #9ca3af; /* رنگ متن کم‌رنگ */
+    --wbd-shadow: 0 20px 60px rgba(0, 0, 0, 0.35); /* سایه عمیق کارت‌ها */
+    --wbd-radius-lg: 18px; /* شعاع گوشه بزرگ برای کانتینرها */
+    --wbd-radius-md: 12px; /* شعاع گوشه متوسط برای آیتم‌ها */
+}
+
+.water-bill-dashboard {
+    background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15), transparent 25%), /* افکت نور ملایم گوشه بالا چپ */
+        radial-gradient(circle at 90% 10%, rgba(14, 165, 233, 0.15), transparent 25%), /* افکت نور گوشه بالا راست */
+        var(--wbd-bg); /* رنگ پس‌زمینه اصلی */
+    border-radius: var(--wbd-radius-lg); /* گرد کردن گوشه‌های بیرونی */
+    padding: 28px; /* فاصله داخلی اصلی */
+    color: var(--wbd-text); /* رنگ متن عمومی */
+    box-shadow: var(--wbd-shadow); /* سایه کلی کانتینر */
+    border: 1px solid var(--wbd-border); /* حاشیه محو بیرونی */
+    overflow: hidden; /* جلوگیری از بیرون‌زدگی عناصر داخلی */
+    font-family: "IRANSans", "Vazirmatn", sans-serif; /* تایپ‌فیس فارسی مناسب */
+}
+
+.water-bill-dashboard__inner {
+    display: grid; /* استفاده از گرید برای چینش دو ستونه */
+    grid-template-columns: 320px 1fr; /* ستون منو و ستون محتوا */
+    gap: 24px; /* فاصله بین ستون‌ها */
+    align-items: stretch; /* کشش آیتم‌ها برای ارتفاع هماهنگ */
+}
+
+.water-bill-dashboard__menu {
+    background: var(--wbd-card); /* پس‌زمینه نیمه شفاف برای منو */
+    border: 1px solid var(--wbd-border); /* حاشیه ملایم منو */
+    border-radius: var(--wbd-radius-md); /* گردی گوشه‌های منو */
+    padding: 18px; /* فاصله داخلی منو */
+    display: flex; /* چیدمان فلکس برای بخش‌های داخلی */
+    flex-direction: column; /* چینش عمودی آیتم‌ها */
+    gap: 18px; /* فاصله بین آیتم‌های منو */
+    backdrop-filter: blur(8px); /* بلور پس‌زمینه برای حس شیشه‌ای */
+}
+
+.water-bill-dashboard__brand {
+    display: flex; /* چینش افقی آیکن و متن */
+    gap: 12px; /* فاصله بین آیکن و عنوان */
+    align-items: center; /* تراز عمودی در وسط */
+    padding: 12px; /* فاصله داخلی بخش برند */
+    border-radius: var(--wbd-radius-md); /* گردی گوشه‌های کارت برند */
+    background: linear-gradient(120deg, rgba(14, 165, 233, 0.1), rgba(37, 99, 235, 0.08)); /* گرادیان لطیف برای تاکید */
+    border: 1px solid rgba(59, 130, 246, 0.35); /* حاشیه رنگی برای برجسته شدن */
+}
+
+.water-bill-dashboard__brand-icon {
+    font-size: 28px; /* اندازه بزرگ برای آیکن برند */
+    background: var(--wbd-primary); /* استفاده از گرادیان اصلی */
+    -webkit-background-clip: text; /* برش پس‌زمینه روی متن برای افکت گرادیان */
+    color: transparent; /* شفاف کردن متن برای نمایش گرادیان */
+}
+
+.water-bill-dashboard__brand-title {
+    font-weight: 800; /* وزن بولد برای عنوان */
+    font-size: 18px; /* اندازه مناسب تیتر */
+}
+
+.water-bill-dashboard__brand-subtitle {
+    color: var(--wbd-muted); /* رنگ کم‌رنگ برای زیرعنوان */
+    font-size: 13px; /* اندازه کوچک‌تر توضیح */
+}
+
+.water-bill-dashboard__menu-list {
+    list-style: none; /* حذف بولت‌های لیست */
+    padding: 0; /* حذف فاصله پیش‌فرض لیست */
+    margin: 0; /* حذف حاشیه پیش‌فرض لیست */
+    display: flex; /* استفاده از فلکس برای کنترل فاصله */
+    flex-direction: column; /* چیدمان عمودی گزینه‌ها */
+    gap: 10px; /* فاصله بین گزینه‌ها */
+}
+
+.water-bill-dashboard__menu-item {
+    width: 100%; /* پهنای کامل آیتم منو */
+    display: flex; /* چینش افقی آیکن و متن */
+    justify-content: space-between; /* فاصله برابر بین اجزا */
+    align-items: center; /* تراز عمودی اجزا */
+    padding: 12px 14px; /* فاصله داخلی آیتم */
+    border-radius: var(--wbd-radius-md); /* گردی گوشه‌های آیتم */
+    background: rgba(255, 255, 255, 0.03); /* پس‌زمینه شفاف برای تضاد */
+    border: 1px solid var(--wbd-border); /* حاشیه ملایم آیتم */
+    color: var(--wbd-text); /* رنگ متن آیتم */
+    cursor: pointer; /* نشانگر کلیک‌پذیری */
+    transition: all 0.2s ease; /* انیمیشن نرم برای حالت‌ها */
+    position: relative; /* برای ایجاد لایه‌های شبه‌عنصر */
+    overflow: hidden; /* جلوگیری از بیرون‌زدگی افکت‌ها */
+}
+
+.water-bill-dashboard__menu-item::before {
+    content: ""; /* تعریف شبه‌عنصر برای افکت پس‌زمینه */
+    position: absolute; /* قرارگیری مطلق روی کل آیتم */
+    inset: 0; /* پوشش کامل عرض و ارتفاع */
+    background: var(--wbd-primary); /* استفاده از گرادیان برند برای افکت */
+    opacity: 0; /* حالت عادی بدون نمایش */
+    transition: opacity 0.2s ease; /* تغییر نرمی شفافیت */
+    z-index: 0; /* قرارگیری زیر محتوای اصلی */
+}
+
+.water-bill-dashboard__menu-item:hover,
+.water-bill-dashboard__menu-item.is-active {
+    transform: translateY(-2px); /* افکت شناور شدن آیتم */
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.18); /* سایه هنگام هاور یا فعال */
+    border-color: rgba(59, 130, 246, 0.6); /* تغییر رنگ حاشیه در حالت فعال */
+}
+
+.water-bill-dashboard__menu-item:hover::before,
+.water-bill-dashboard__menu-item.is-active::before {
+    opacity: 0.14; /* نمایش ملایم افکت گرادیان زیر آیتم */
+}
+
+.water-bill-dashboard__menu-icon,
+.water-bill-dashboard__menu-text {
+    position: relative; /* اطمینان از پوشش بالای شبه‌عنصر */
+    z-index: 1; /* قرارگیری روی افکت گرادیان */
+}
+
+.water-bill-dashboard__menu-icon {
+    font-size: 18px; /* اندازه آیکن منو */
+}
+
+.water-bill-dashboard__menu-text {
+    font-weight: 600; /* ضخامت متن منو */
+}
+
+.water-bill-dashboard__content {
+    background: var(--wbd-card); /* پس‌زمینه کارت محتوا */
+    border: 1px solid var(--wbd-border); /* حاشیه ظریف برای محتوا */
+    border-radius: var(--wbd-radius-md); /* گردی گوشه‌های محتوایی */
+    padding: 20px; /* فاصله داخلی محتوایی */
+    min-height: 460px; /* حداقل ارتفاع برای تعادل بصری */
+    position: relative; /* برای مدیریت لودر و لایه‌ها */
+    overflow: hidden; /* جلوگیری از بیرون‌زدگی اجزای داخلی */
+}
+
+.water-bill-dashboard__loader {
+    position: absolute; /* پوشش کامل روی محتوا هنگام بارگذاری */
+    inset: 0; /* امتداد لودر روی تمام ظرف */
+    display: grid; /* مرکز کردن محتوا با گرید */
+    place-items: center; /* مرکز کردن افقی و عمودی */
+    gap: 10px; /* فاصله بین آیکن و متن لودر */
+    background: rgba(11, 17, 32, 0.75); /* پوشش تار پس‌زمینه */
+    backdrop-filter: blur(3px); /* بلور ملایم پشت لودر */
+    z-index: 2; /* قرارگیری روی سایر محتوا */
+}
+
+.water-bill-dashboard__spinner {
+    width: 46px; /* قطر اسپینر */
+    height: 46px; /* ارتفاع اسپینر */
+    border-radius: 50%; /* شکل دایره‌ای اسپینر */
+    border: 4px solid rgba(255, 255, 255, 0.25); /* حاشیه کم‌رنگ پیرامون اسپینر */
+    border-top-color: #38bdf8; /* رنگ اصلی نوار بالایی برای حرکت */
+    animation: wbd-spin 0.8s linear infinite; /* انیمیشن چرخش پیوسته */
+}
+
+@keyframes wbd-spin {
+    to {
+        transform: rotate(360deg); /* چرخش کامل ۳۶۰ درجه */
+    }
+}
+
+.water-bill-dashboard__content-body {
+    position: relative; /* لایه‌بندی نسبت به لودر */
+    z-index: 1; /* نمایش بالاتر از افکت‌های پس‌زمینه */
+}
+
+.water-bill-dashboard__panel {
+    background: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.08), transparent 35%), /* افکت نور ملایم داخل پانل */
+        rgba(255, 255, 255, 0.02); /* پس‌زمینه نیمه شفاف پانل */
+    border-radius: var(--wbd-radius-lg); /* گردی بزرگ گوشه‌های پانل */
+    padding: 22px; /* فاصله داخلی پانل */
+    border: 1px solid var(--wbd-border); /* حاشیه ظریف پانل */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06); /* خط نوری داخلی برای عمق */
+}
+
+.water-bill-dashboard__panel-header {
+    display: flex; /* چینش افقی تیتر و اطلاعات */
+    align-items: center; /* تراز عمودی در وسط */
+    justify-content: space-between; /* فاصله‌گذاری خودکار بین آیتم‌ها */
+    gap: 12px; /* فاصله بین عناصر سربرگ */
+    margin-bottom: 18px; /* فاصله از بدنه پانل */
+}
+
+.water-bill-dashboard__panel-title {
+    margin: 4px 0; /* تنظیم حاشیه تیتر */
+    font-size: 22px; /* اندازه تیتر پانل */
+    color: #e0f2fe; /* رنگ روشن برای تیتر */
+}
+
+.water-bill-dashboard__panel-desc {
+    margin: 0; /* حذف حاشیه اضافی پاراگراف */
+    color: var(--wbd-muted); /* رنگ کم‌رنگ توضیح */
+    font-size: 14px; /* اندازه مناسب متن کمکی */
+}
+
+.water-bill-dashboard__eyebrow {
+    margin: 0; /* حذف حاشیه پیش‌فرض */
+    text-transform: uppercase; /* تبدیل متن به حروف بزرگ برای برچسب */
+    letter-spacing: 0.12em; /* فاصله بین حروف برای خوانایی */
+    font-size: 11px; /* اندازه کوچک برای متن فرعی */
+    color: #7dd3fc; /* رنگ فیروزه‌ای برای تاکید */
+}
+
+.water-bill-dashboard__badge {
+    padding: 8px 12px; /* فاصله داخلی برچسب */
+    border-radius: 999px; /* گردی کامل برای حالت پِل */
+    background: linear-gradient(120deg, #38bdf8, #0ea5e9); /* گرادیان روشن برای جلب توجه */
+    color: #0b1120; /* رنگ متن تیره برای کنتراست */
+    font-weight: 700; /* ضخامت بالا برای خوانایی */
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3); /* سایه برای برجستگی */
+}
+
+.water-bill-dashboard__panel-body {
+    background: rgba(0, 0, 0, 0.2); /* پس‌زمینه نیمه تیره برای جداسازی */
+    border-radius: var(--wbd-radius-md); /* گردی گوشه‌های بدنه */
+    padding: 16px; /* فاصله داخلی */
+    border: 1px dashed var(--wbd-border); /* خط‌چین برای تمایز محدوده */
+}
+
+.water-bill-dashboard__form :where(input, textarea, select) {
+    border-radius: 10px !important; /* گردی گوشه فیلدها */
+    border-color: rgba(255, 255, 255, 0.2) !important; /* حاشیه کم‌رنگ ورودی‌ها */
+    background: rgba(255, 255, 255, 0.02) !important; /* پس‌زمینه شفاف ورودی */
+    color: var(--wbd-text) !important; /* رنگ متن ورودی‌ها */
+}
+
+.water-bill-dashboard__form :where(button, input[type="submit"]) {
+    border-radius: 12px !important; /* گردی دکمه‌ها */
+    background: linear-gradient(120deg, #38bdf8, #2563eb) !important; /* گرادیان دکمه‌های اصلی */
+    border: none !important; /* حذف حاشیه پیش‌فرض دکمه */
+    padding: 12px 18px !important; /* فاصله داخلی دکمه‌ها */
+    color: #0b1120 !important; /* رنگ تیره متن برای کنتراست */
+    font-weight: 700 !important; /* ضخامت بالای فونت دکمه */
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25) !important; /* سایه برای برجسته‌سازی */
+}
+
+.water-bill-dashboard__notice {
+    padding: 18px; /* فاصله داخلی اعلان */
+    border-radius: var(--wbd-radius-md); /* گردی گوشه‌های اعلان */
+    background: rgba(248, 113, 113, 0.1); /* پس‌زمینه قرمز ملایم هشدار */
+    border: 1px solid rgba(248, 113, 113, 0.35); /* حاشیه رنگی هشدار */
+    color: #fecdd3; /* رنگ متن روشن هشدار */
+}
+
+@media (max-width: 960px) {
+    .water-bill-dashboard__inner {
+        grid-template-columns: 1fr; /* تبدیل به تک ستون در موبایل */
+    }
+
+    .water-bill-dashboard__menu {
+        order: 2; /* انتقال منو به پایین در موبایل */
+    }
+}
